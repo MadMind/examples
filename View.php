@@ -17,11 +17,7 @@ class View
 
     public function __get($name)
     {
-        if (!empty($this->vars[$name])) {
-            return $this->vars[$name];
-        }
-
-        return null;
+        return (!empty($this->vars[$name])) ? $this->vars[$name] : null;
     }
 
     public function render()

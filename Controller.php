@@ -15,7 +15,14 @@ class Controller
 
     public function indexAction()
     {
-        $this->view->string1 = "Test 1";
+        $name = (!empty($_GET['name'])) ? $_GET['name'] : null;
+
+        if ($name) {
+            $this->view->setTemplate(__DIR__.'/views/controller/name.php');
+            $this->view->name = $name;
+        } else {
+            $this->view->string1 = "Test 1";
+        }
     }
 
 }
